@@ -68,6 +68,9 @@ func (c *SubAccountClient) createHttpRequest(req *http.Request) (map[string]inte
 }
 
 func (c *SubAccountClient) createCheckResponse(response map[string]interface{}) error {
+	if _, ok := response["errorCode"]; ok {
+		return fmt.Errorf("Problem creating sub account: %s", response["message"])
+	}
 	return nil
 }
 
