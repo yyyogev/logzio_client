@@ -71,6 +71,9 @@ func (c *SubAccountClient) createCheckResponse(response map[string]interface{}) 
 	if _, ok := response["errorCode"]; ok {
 		return fmt.Errorf("Problem creating sub account: %s", response["message"])
 	}
+	if _, ok := response["code"]; ok {
+		return fmt.Errorf("Problem creating sub account: %s", response["message"])
+	}
 	return nil
 }
 
