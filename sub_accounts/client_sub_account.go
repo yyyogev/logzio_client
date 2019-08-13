@@ -63,9 +63,7 @@ func New(apiToken string, baseUrl string) (*SubAccountClient, error) {
 func jsonToSubAccount(json map[string]interface{}) SubAccount {
 	subAccount := SubAccount{
  		Id:                    int64(json[fldAccountId].(float64)),
-		Email:                 json[fldEmail].(string),
 		AccountName:           json[fldAccountName].(string),
-		AccountToken:          json[fldAccountToken].(string),
 		MaxDailyGB:            float32(json[fldMaxDailyGB].(float64)),
 		RetentionDays:         int32(json[fldRetentionDays].(float64)),
 		Searchable:            json[fldSearchable].(bool),
@@ -75,5 +73,12 @@ func jsonToSubAccount(json map[string]interface{}) SubAccount {
 		UtilizationSettings:   json[fldUtilizationSettings].(map[string]interface{}),
 		DailyUsagesList:       json[fldDailyUsagesList],
 	}
+	if val, ok := json[fldEmail].(string); ok {
+		subAccount.Email = val
+	}
+	if val, ok := json[fldAccountToken]; ok {
+		subAccount.AccountToken = val.(string)
+	}
+
 	return subAccount
 }

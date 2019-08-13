@@ -1,0 +1,15 @@
+{
+  "accountId": 97179,
+  "email": null,
+  "accountName": "create_subaccount_name",
+  "maxDailyGB": 10,
+  "retentionDays": 10,
+  "searchable": true,
+  "accessible": true,
+  "docSizeSetting": true,
+  "sharingObjectsAccounts": [],
+  "utilizationSettings": {
+    "frequencyMinutes": null,
+    "utilizationEnabled": false
+  }
+}
